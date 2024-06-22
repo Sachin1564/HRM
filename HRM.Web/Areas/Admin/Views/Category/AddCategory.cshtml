@@ -1,0 +1,30 @@
+﻿@using EntityLayer.WebApplication.ViewModels.CategoryVM
+@model CategoryAddVM
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+
+
+        <!-- Floating Labels Form -->
+        <form asp-area="Admin" asp-controller="Category" asp-action="AddCategory" method="post" class="row g-3" enctype="multipart/form-data">
+            
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                    <label asp-for="Name">Name</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form><!-- End floating Labels Form -->
+
+    </div>
+</div>
+

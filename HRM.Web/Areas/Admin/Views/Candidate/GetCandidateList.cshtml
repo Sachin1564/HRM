@@ -1,0 +1,80 @@
+﻿@using EntityLayer.WebApplication.ViewModels.CandidateVM
+@model List<CandidateListVM>
+@{
+    ViewData["Title"] = "GetCandidateList";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h5 class="card-title">Candidate</h5>
+
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active">Category</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-body">
+
+        <!-- Table with hoverable rows -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">DateOfBirth</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col"> City</th>
+                    <th scope="col"> State</th>
+                    <th scope="col"> ZipCode</th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">UpdateDate</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.DateOfBirth</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Address</td> 
+                        <td>@item.City</td>
+                        <td>@item.State</td>
+                        <td>@item.ZipCode</td>
+                        <td>@item.EducationLevel</td> 
+                        <td>@item.University</td>
+                        <td>@item.Major</td>
+                        <td>@item.GraduationDate</td>
+                        <td>@item.WorkExperience</td> 
+                        <td>@item.Skills</td>
+    
+                        
+                        <td>@item.CreatedDate</td>
+                        <td>@item.UpdateDate</td>
+                        <td><a asp-area="Admin" asp-controller="Candidate" asp-route-id="@item.Id" asp-action="UpdateCandidate" data-id="@item.Id" class="btn btn-warning btn-sm">Edit</a></td>
+                        <td><a asp-area="Admin" asp-controller="Candidate" asp-route-id="@item.Id" asp-action="DeleteCandidate" data-id="@item.Id" class="btn btn-danger btn-sm">Delete</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- End Table with hoverable rows -->
+
+        <a asp-area="Admin" asp-controller="Candidate" asp-action="AddCandidate" class="btn btn-success btn-sm">Add Candidate</a>
+    </div>
+</div>
+
+
+
+
